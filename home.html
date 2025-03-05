@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+    <!--<div class="container">
+    <h2 id="titulo"></h2>
+    <button onclick="logout()">Sair</button>
+    </div> -->
+
+    <div class="container" id="homeContainer">
+      <h2 id="titulo"></h2>
+
+      <h3>Criar novo post</h3>
+      <textarea id="novoPost" placeholder="Escreva seu post aqui..." cols="40" rows="5"></textarea>
+      <button onclick="criarPost()">Criar Post</button>
+
+      <div id="postsContainer"></div>
+
+      <button onclick="logout()" class="botaoSair">Sair</button>
+    </div>
+
+<script src="script.js">
+  const nomeUsuario = localStorage.getItem("usuarioLogado");
+  if (nomeUsuario) {
+    document.getElementById("titulo").textContent = "Olá, " + nomeUsuario + "!";
+  } else {
+    document.getElementById("titulo").textContent = "Usuário não identificado.";
+  }
+  function logout() {
+    localStorage.removeItem("usuarioLogado");
+    window.location.href = "index.html";
+  } 
+  </script>
+  </body>
+</html>
